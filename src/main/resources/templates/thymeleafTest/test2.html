@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<a th:href="@{/public/details(var=${var},var2=${var})}">th:href属性 get多参数</a>
+<br/>
+<a th:href="@{/public/{var2}/details(var2=${var},var3=${var})}">th:href属性 pathVariable</a>
+<br/>
+
+循环
+<div th:each="var,status:${list}">
+    <p><span th:text="${var.username}">test</span>.</p>
+    <p th:text="${status.last}">状态变量：index</p>
+
+</div>
+
+<a th:if="${#lists.size(list)<0}">if条件</a>
+
+
+<!--</div>-->
+</body>
+</html>

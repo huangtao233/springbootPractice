@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+循环
+<div th:each="user,status:${list}">
+    <p><span th:text="${user.userName}">test</span>.</p>
+    <p th:text="${status.last}">状态变量：index</p>
+
+</div>
+
+
+
+
+<!--</div>-->
+</body>
+</html>

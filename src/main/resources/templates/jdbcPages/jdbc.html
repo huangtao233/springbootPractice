@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script th:src="@{/jquery.js}" type="text/javascript"></script>
+
+
+    <!-- 在js用thymeleaf模板要加th：inline,而且得用[[...]]包起来-->
+    <script type="text/javascript" th:inline="javascript">
+
+        function ajaxTest() {
+
+
+            jQuery.ajax({
+                type: "get",
+                url: "/testJdbc/users",
+            data:{
+                username:"huangtao"
+            },
+            success:function (message) {
+                console.log(message);
+            }
+
+        })
+
+
+        }
+
+        function ajaxTestById() {
+
+
+            var userId = jQuery("#userId").val();
+            if (!isNaN(userId)) {
+                var url = "/testJdbc/users/" + userId;
+                alert(url);
+                jQuery.ajax({
+                    type: "get",
+                    url: url, success:function (message) {
+                    console.log(message);
+                }
+
+            })
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<button onclick="ajaxTest()">获取用户列表接口测试</button>
+
+<br/>
+<input id="userId" style="width: 40px"/>
+<button onclick="ajaxTestById()">根據ID获取用户列表接口测试</button>
+
+</body>
+</html>
